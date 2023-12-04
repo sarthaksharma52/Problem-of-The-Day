@@ -2,17 +2,16 @@ import java.util.List;
 
 public class eulerPath{
      public int isEulerCircuit(int V, List<Integer>[] adj) {
-        // Check if the graph is not empty
+       
         if (V == 0) {
             return 0;
         }
 
-        // Check if the graph is connected
+       
         if (!isConnected(V, adj)) {
             return 0;
         }
 
-        // Count the number of nodes with odd degrees
         int oddDegreeCount = 0;
         for (int i = 0; i < V; i++) {
             if (adj[i].size() % 2 != 0) {
@@ -20,15 +19,15 @@ public class eulerPath{
             }
         }
 
-        // Analyze the count of nodes with odd degrees
+        
         if (oddDegreeCount == 0) {
-            // All nodes have even degrees, so it's an Eulerian circuit
+           
             return 2;
         } else if (oddDegreeCount == 2) {
-            // There are two nodes with odd degrees, so it's an Eulerian path
+            
             return 1;
         } else {
-            // More than two nodes with odd degrees, so it's not Eulerian
+            
             return 0;
         }
     }
@@ -73,7 +72,5 @@ public class eulerPath{
         }
     }
     
-    public static void main(String[] args) {
-        
-    }
+    
 }
